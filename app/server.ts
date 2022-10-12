@@ -10,6 +10,9 @@ import connectDb from './config/db'
 /** express */
 import express, { json } from 'express'
 
+/** router */
+import universityRouter from './routers/university-router'
+
 /** scripts */
 import searchUniversitiesByCountry from './scripts/register_university'
 
@@ -17,6 +20,7 @@ import searchUniversitiesByCountry from './scripts/register_university'
 const app = express()
 app.use(json())
 app.use(cors())
+app.use(universityRouter)
 
 connectDb
   .then(async () => {
