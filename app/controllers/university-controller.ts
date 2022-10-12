@@ -13,4 +13,12 @@ const searchUniversityControllerById = async (req: Request, res: Response) => {
   res.status(200).json(university)
 }
 
-export default searchUniversityControllerById
+const deleteUniversityControllerById = async (req: Request, res: Response) => {
+  const { id } = req.params
+
+  await universityModel.findByIdAndDelete(id)
+
+  res.sendStatus(204)
+}
+
+export { searchUniversityControllerById, deleteUniversityControllerById }
