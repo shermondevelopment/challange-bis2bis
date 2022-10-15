@@ -1,6 +1,6 @@
 export default [
+  'brazil',
   'argentina',
-  'brasil',
   'chile',
   'colombia',
   'paraguai',
