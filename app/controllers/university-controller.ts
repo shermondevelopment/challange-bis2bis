@@ -30,6 +30,42 @@ const searchUniversity = async (req: Request, res: Response) => {
   }
 }
 
+const createUniversity = async (req: Request, res: Response) => {
+  try {
+    const {
+      country,
+      name,
+      state_province,
+      alpha_two_code,
+      web_pages,
+      domains
+    } = req.body
+    const findUniversity = await universityModel.findOne({
+      $and: [
+        { country: country },
+        { $or: [{ name: name }, { state_province: state_province }] }
+      ]
+    })
+
+    if (findUniversity) {
+      return res.status(400).json({ error: 'university already exists!' })
+    }
+
+    const universityCreated = await universityModel.create({
+      country,
+      name,
+      state_province,
+      alpha_two_code,
+      web_pages,
+      domains
+    })
+
+    res.status(201).json(universityCreated)
+  } catch (error: any) {
+    res.status(500).json({ error: 'internal server error' })
+  }
+}
+
 const deleteUniversityControllerById = async (req: Request, res: Response) => {
   const { id } = req.params
 
@@ -41,5 +77,6 @@ const deleteUniversityControllerById = async (req: Request, res: Response) => {
 export {
   searchUniversityControllerById,
   deleteUniversityControllerById,
-  searchUniversity
+  searchUniversity,
+  createUniversity
 }
