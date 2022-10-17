@@ -1,6 +1,6 @@
 # Backend challenge
 
-The challenge is to create a crud where there is registration, editing, deletion, customer listing.
+The challenge is to create a crud where there is registration, editing, deletion, universities listing.
 
 ## What is inside?
 
