@@ -61,22 +61,46 @@ const createUniversity = async (req: Request, res: Response) => {
     })
 
     res.status(201).json(universityCreated)
-  } catch (error: any) {
+  } catch (error) {
+    res.status(500).json({ error: 'internal server error' })
+  }
+}
+
+const updateUniversity = async (req: Request, res: Response) => {
+  try {
+    const universityBody = req.body
+    const { id } = req.params
+
+    const findUniversity = await universityModel.findById(id)
+
+    if (!findUniversity) {
+      return res.status(404).json({ error: 'university does not exist' })
+    }
+
+    await universityModel.update({ ...universityBody })
+
+    res.sendStatus(204)
+  } catch (error) {
     res.status(500).json({ error: 'internal server error' })
   }
 }
 
 const deleteUniversityControllerById = async (req: Request, res: Response) => {
-  const { id } = req.params
+  try {
+    const { id } = req.params
 
-  await universityModel.findByIdAndDelete(id)
+    await universityModel.findByIdAndDelete(id)
 
-  res.sendStatus(204)
+    res.sendStatus(204)
+  } catch (error) {
+    res.status(500).json({ error: 'internal server error' })
+  }
 }
 
 export {
   searchUniversityControllerById,
   deleteUniversityControllerById,
   searchUniversity,
-  createUniversity
+  createUniversity,
+  updateUniversity
 }
