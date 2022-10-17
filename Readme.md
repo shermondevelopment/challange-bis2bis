@@ -56,7 +56,7 @@ Params: {
 ## Get Universities
 
 ```bash
-GET: http://localhost:5050/auniversities?page=1&limit=${your university limit}
+GET: http://localhost:5050/universities?page=1&limit=${your university limit}
 
 ```
 
@@ -76,7 +76,7 @@ DELETE: http://localhost:5050/universities/${id_university}
 ## List Single University
 
 ```bash
-GET: http://localhost:5050/university/${id_university}
+GET: http://localhost:5050/universities/${id_university}
 
 ```
 
