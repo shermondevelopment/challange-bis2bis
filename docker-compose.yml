@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  db:
+    container_name: db_bis2bis
+    image: mongo
+    restart: always
+    ports:
+      - '27017:27017'
+    env_file:
+      - .env
+  api:
+    container_name: api_bis2bis
+    build: ./
+    ports:
+      - '5000:5000'
+    env_file:
+      - .env
+    depends_on:
+      - 'db'
