@@ -56,7 +56,7 @@ Params: {
 ## Get Universities
 
 ```bash
-GET: http://localhost:5050/universities?page=1&offset=${your university limit}
+GET: http://localhost:5000/universities?page=1&offset=${your university limit}
 
 ```
 
@@ -66,7 +66,7 @@ GET: http://localhost:5050/universities?page=1&offset=${your university limit}
 ## Delete University
 
 ```bash
-DELETE: http://localhost:5050/universities/${id_university}
+DELETE: http://localhost:5000/universities/${id_university}
 
 ```
 
@@ -76,7 +76,7 @@ DELETE: http://localhost:5050/universities/${id_university}
 ## List Single University
 
 ```bash
-GET: http://localhost:5050/universities/${id_university}
+GET: http://localhost:5000/universities/${id_university}
 
 ```
 
@@ -86,7 +86,7 @@ GET: http://localhost:5050/universities/${id_university}
 ## Update university
 
 ```bash
-PUT: http://localhost:5050/university/${id_university}
+PUT: http://localhost:5000/university/${id_university}
 Params: {
   alpha_two_code: string, maxLength: 2
   web_pages: Array<string>
