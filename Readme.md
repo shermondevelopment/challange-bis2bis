@@ -11,12 +11,10 @@ This project uses lot of stuff as:
 - [Prettier](https://prettier.io/)
 - [MongoDb](https://www.mongodb.com/)
 
-## Install dependencies
+## Environment variable setting
 
 ```bash
-npm install
-# or
-yarn install
+rename file .env.dev to .env
 ```
 
 <br/>
@@ -75,7 +73,7 @@ DELETE: http://localhost:5050/universities/${id_university}
 <br/>
 <br/>
 
-## List Single Client
+## List Single University
 
 ```bash
 GET: http://localhost:5050/university/${id_university}
@@ -85,7 +83,7 @@ GET: http://localhost:5050/university/${id_university}
 <br/>
 <br/>
 
-## Update
+## Update university
 
 ```bash
 PUT: http://localhost:5050/university/${id_university}
